@@ -1,6 +1,6 @@
 
 <%@bills.each do |bill|%>
-	<p>Bill Date: <%=bill.created_at%></p>
+	<p>Bill Date: <%=bill.created_at.strftime("%m/%d/%y %I:%M %p")%></p>
 	<p class="toggle">click to view info</p>
 	<div class="hide">
 		<table>

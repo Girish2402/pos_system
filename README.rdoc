@@ -5,24 +5,19 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 2.3.1
 
-* System dependencies
+* Rails version : 4.0.1
 
-* Configuration
+* Database : MongoDB
 
-* Database creation
+* First we have to create products by hitting below url
+	http://localhost:3000/items/new
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Then hit the below url to POS system
+	http://localhost:3000
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* To see previouse genrated bills
+	http://localhost:3000/bill/view_bill
+
