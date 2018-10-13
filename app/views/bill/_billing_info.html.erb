@@ -1,0 +1,36 @@
+<script id="entry-template" type="text/x-handlebars-template">
+  <h3 style="margin-top:100px;">Order Summary</h3>
+	<table>
+	  {{#each billing_info}}
+			<tr>
+		  	<td>{{quantity}}</td>
+		  	<td>X</td>
+		  	<td>{{itme_name}}:</td>
+		  	{{debug}}
+		  	{{#compareTwoValues quantity 1 operator="=="}}
+			  	<td>Rs.</td>
+			  	<td>{{item_total}}</td>
+			  {{/compareTwoValues}}
+
+	    	{{#compareTwoValues quantity 1 operator="!="}}
+	  	  	<td>Rs.</td>
+	  	  	<td>{{unit_price}} X {{quantity}} = Rs. {{item_total}}</td>
+	  	  {{/compareTwoValues}}
+			</tr>
+		  {{/each}}
+	</table>
+	<p>Total (Before Tax): Rs. {{sub_amount}}</p>
+	<p>Final Value: Rs. {{total_amount}}</p>
+  {{debug}}
+
+  <button id="place-order">place order</button>
+</script>
+
+<style type="text/css">
+	p{
+		margin: 0px;
+	}
+	#place-order{
+		margin-top: 20px;
+	}
+</style>

@@ -1,0 +1,20 @@
+<script id="product-template" type="text/x-handlebars-template">
+<tr>
+  <td>
+    {{debug}}
+    <select name="item{{product_count}}[product_id]" id="item{{product_count}}">
+      <%Item.each do |item|%>
+        <option value="<%=item.id.to_s%>"><%=item.name%> Rs.<%=item.price%> (<%=item.tags.map(&:name).join(",").gsub(",", "")%>)</option>
+      <%end%>
+    </select>
+  </td>
+  <td>
+    <select name="item{{product_count}}[quantity]">
+      <% (1..10).each do |q| %>
+        <option value="<%=q%>"><%=q%></option>
+      <%end%>
+    </select>
+  </td>
+  <td><a href="" id="delete">delete</a></td>
+</tr>
+</script>

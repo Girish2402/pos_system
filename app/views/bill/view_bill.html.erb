@@ -1,0 +1,30 @@
+
+<%@bills.each do |bill|%>
+	<p>Bill Date: <%=bill.created_at%></p>
+	<p class="toggle">click to view info</p>
+	<div class="hide">
+		<table>
+			<tr>
+				<td>Item name</td>
+				<td>Quantity</td>
+				<td>Unit Price</td>
+				<td>Total Price</td>
+			</tr>
+			<%bill.billing_info.each do |info|%>
+				<tr>
+					<td><%=info[:itme_name]%></td>
+					<td><%=info[:quantity]%></td>
+					<td><%=info[:unit_price]%></td>
+					<td><%=info[:item_total]%></td>
+				</tr>
+			<%end%>
+		</table>
+		<p>Sub Total: Rs.<%=bill.sub_amount%></p>
+		<p>Total amoount: Rs.<%=bill.total_amount%></p>
+	</div>
+	<hr>
+<%end%>
+
+<style type="text/css">
+	.hide{ display: none }
+</style>

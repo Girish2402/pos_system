@@ -1,0 +1,36 @@
+<h1>POS System</h1>
+
+<form action="/bill/create" method="post" id= "genarate-bill">
+  <table class="new-product">
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+    </tr>
+    <tr>
+      <td>
+        <select name="item0[product_id]" id="item0">
+          <%Item.each do |item|%>
+            <option value="<%=item.id.to_s%>"><%=item.name%> Rs.<%=item.price%> (<%=item.tags.map(&:name).join(",").gsub(",", "")%>)</option>
+          <%end%>
+        </select>
+      </td>
+      <td>
+        <select name="item0[quantity]">
+          <% (1..10).each do |q| %>
+            <option value="<%=q%>"><%=q%></option>
+          <%end%>
+        </select>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+  <input type="hidden" id="product_count" name="product_count" value="0">
+  <input type="hidden" id="product_id" name="product_id" value="">
+</form>
+<button id="plus">Add Item</button>
+<button id="create-bill" style="margin-top: 20px">Genarate bill</button>
+
+<div id="bill-template"></div>
+
+<%= render 'billing_info' %>
+<%= render 'product_info' %>
